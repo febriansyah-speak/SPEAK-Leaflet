@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nyoba Leaflet</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+</head>
+<body>
+<div id="map" style="width: 100%; height: 900px;"></div>
+<script>
+    // set view
+    var map = L.map('map').setView([-7.4462755, 112.7162229], 0);
+
+    // tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        Zoom: 16,
+    }).addTo(map);
+
+    // popup koordinat
+    var popup = L.popup();
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Koordinat : " + e.latlng.toString())
+            .openOn(map);
+    }
+
+    L.control.scale({maxWidth: 200}).addTo(map);
+
+    map.on('click', onMapClick);
+
+    function zoomCycle(){
+        map.setZoom(0);
+        timeouts = [];
+        timeouts.push(setTimeout(function(){ map.setZoom(0); },  2000));
+        timeouts.push(setTimeout(function(){ map.setZoom(2); },  4000));
+        timeouts.push(setTimeout(function(){ map.setZoom(4); },  6000));
+        timeouts.push(setTimeout(function(){ map.setZoom(6); },  8000));
+        timeouts.push(setTimeout(function(){ map.setZoom(8); },  10000));
+        timeouts.push(setTimeout(function(){ map.setZoom(10); },  12000));
+        timeouts.push(setTimeout(function(){ map.setZoom(12); },  14000));
+        timeouts.push(setTimeout(function(){ map.setZoom(14); },  16000));
+        timeouts.push(setTimeout(function(){ map.setZoom(16); },  18000));
+
+    }
+    zoomCycle();
+
+    var zoomingInterval = setInterval(zoomCycle, 20000);
+
+    var ZoomViewer = L.Control.extend({
+        onAdd: function(){
+
+            var container= L.DomUtil.create('div');
+            var gauge = L.DomUtil.create('div');
+            container.style.width = '200px';
+            container.style.background = 'rgba(255,255,255,0.5)';
+            container.style.textAlign = 'left';
+            map.on('zoomstart zoom zoomend', function(ev){
+                gauge.innerHTML = 'Zoom level: ' + map.getZoom();
+            })
+            container.appendChild(gauge);
+
+            return container;
+        }
+    });
+
+    (new ZoomViewer).addTo(map);
+
+
+</script>
+</body>
+</html>
