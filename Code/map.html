@@ -31,9 +31,11 @@
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("Koordinat : " + e.latlng.toString())
+            .setContent("Koordinat " + e.latlng.toString())
             .openOn(map);
     }
+
+    map.on('click', onMapClick);
 
     // pengukur skala
     L.control.scale({maxWidth: 200}).addTo(map);
