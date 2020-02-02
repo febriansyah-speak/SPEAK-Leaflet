@@ -1,0 +1,24 @@
+{
+  "name": "febriansyah-speak-leaflet",
+  "description": "Introduction Map System, Tiles, Marker  Geolocation",
+  "version": "1.0.0",
+  "repository": "https://github.com/febriansyah4299/SPEAK-Leaflet.git",
+  "author": "FEBRIANSYAH <info@febriansyah.id>",
+  "scripts": {
+    "start": "mdx-deck deck.js",
+    "build": "mdx-deck build deck.js",
+    "b": "yarn build",
+    "s": "yarn start",
+    "p": "now --prod"
+  },
+  "devDependencies": {
+    "code-surfer": "2.0.0-alpha.10",
+    "mdx-deck": "2.5.1",
+    "mdx-deck-code-surfer": "0.5.5"
+  },
+  "peerDependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  },
+  "license": "MIT"
+}

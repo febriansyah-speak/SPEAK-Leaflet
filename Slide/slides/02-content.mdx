@@ -1,0 +1,350 @@
+import { Appear, Embed, Notes } from 'mdx-deck'
+import { CodeSurferLayout } from 'code-surfer'
+
+# How  Google Maps, OpenStreetMap, Bing Maps Serve A Map Data?
+
+Giveaway
+
+---
+
+# Tile
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/tile-keramik.jpg" width="300"/>
+
+a thin, usually square or rectangular piece of baked clay, plastic, etc. used for covering roofs, floors, walls, etc. [Cambridge Dictionary]
+
+---
+
+<ul>
+  <Appear>
+    <li>
+        Tile on map like tile on floor, but no gap
+    </li>
+    <li>
+        Every Tile is 256x256 pixel
+    </li>
+    <li>
+        PNG
+    </li>
+    <li>
+        Zoom 0 = Whole world in 1 tile
+    </li>
+    <li>
+        Mapbox GL–based libraries uses 512×512-pixel tiles by default
+     </li>
+  </Appear>
+</ul>
+
+---
+
+# Zoom 0
+
+![png](https://a.tile.openstreetmap.org/0/0/0.png)
+
+---
+
+# Zoom 1
+
+![png](https://a.tile.openstreetmap.org/1/0/0.png)
+
+---
+
+# Zoom 2
+
+![png](https://a.tile.openstreetmap.org/2/0/1.png)
+
+---
+
+# Zoom 3
+
+![png](https://a.tile.openstreetmap.org/3/0/2.png)
+
+---
+
+# Zoom 4
+
+![png](https://a.tile.openstreetmap.org/4/0/4.png)
+
+---
+
+# Zoom 5
+
+![png](https://a.tile.openstreetmap.org/5/0/8.png)
+
+---
+
+# Total Tile In Whole World = 4^Zoom
+
+---
+
+# List of map projections
+
+---
+
+# Azimuthal equidistant
+Abū Rayḥān al-Bīrūnī
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/azimuth.jpg" width="200"/>
+
+###### (Ternyata selama ini bumi berbentuk lingkaran yang di kelilingi tembok es raksasa! 😱)
+
+---
+
+# Waterman butterfly projection
+Steve Waterman
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/waterman.png" width="300"/>
+
+###### (Ternyata selama ini bumi berbentuk kupu-kupu! 😱)
+
+---
+
+# Mercator
+Gerardus Mercator
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/mercator.JPG" width="200"/>
+
+###### (Ternyata selama ini bumi datar! 😱)
+
+---
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/earthchan.jpg" width="400"/>
+
+---
+
+# Winkel tripel
+Oswald Winkel
+
+<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/winkel-triple.jpg" width="300"/>
+
+###### (Kok bentuknya kayak ban ya 🤔)
+
+---
+
+Why All World Map Are Wrong
+
+<iframe width="854" height="480" src="https://www.youtube-nocookie.com/embed/kIID5FDi2JQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+# thetruesize.com
+
+for compare size any country
+
+---
+
+# What
+# Is
+![png](https://leafletjs.com/docs/images/logo.png)
+# ?
+
+---
+
+# Leaflet Is
+<ul>
+  <Appear>
+    <li>
+      the leading open-source JavaScript library for mobile-friendly interactive maps
+    </li>
+    <li>
+      Handcrafted with ❤️ by Vladimir Agafonkin (https://agafonkin.com/)
+    </li>
+    <li>
+      First release (Version 0.1) 13 May 2011
+    </li>
+  </Appear>
+</ul>
+
+---
+
+![gif](https://raw.githubusercontent.com/febriansyah4299/GIF/master/yuki.gif)
+# Lets &lt;Code&gt;
+
+---
+
+# Installing Leaflet
+
+npm install leaflet
+
+yarn add leaflet
+
+https://leafletjs.com/download.html
+
+---
+
+# Place in body
+
+&lt;&#100;&#105;&#118;&#32;&#105;&#100;&equals;&quot;&#109;&#97;&#112;&quot;&#32;&#115;&#116;&#121;&#108;&#101;&equals;&quot;&#119;&#105;&#100;&#116;&#104;&colon;&#32;&#49;&#48;&#48;&percnt;&semi;&#32;&#104;&#101;&#105;&#103;&#104;&#116;&colon;&#32;&#57;&#48;&#48;&#112;&#120;&semi;&quot;&gt;&lt;&sol;&#100;&#105;&#118;&gt;
+
+---
+
+<CodeSurferLayout>
+
+```js subtitle='You can use Tile from OpenStreetMap, MapBox, etc'
+var map = L.map('map').setView([-7.4462755, 112.7162229], 16);
+L.tileLayer('', {
+    Zoom: 16,
+        }).addTo(map);
+```
+
+```js subtitle='You can use Tile from OpenStreetMap, MapBox, etc'
+var map = L.map('map').setView([-7.4462755, 112.7162229], 16);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    Zoom: 16,
+        }).addTo(map);
+```
+
+```js subtitle='You can use Tile from OpenStreetMap, MapBox, etc'
+var map = L.map('map').setView([-7.4462755, 112.7162229], 16);
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    Zoom: 16,
+        }).addTo(map);
+```
+</CodeSurferLayout>
+
+---
+
+# Or You Can Use Your Own Tile
+
+if you are able to make map the whole world 😉
+
+---
+
+![jpg](https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/mapinit.jpg)
+
+---
+
+# Scale
+
+<ul>
+  <Appear>
+    <li>
+      The scale of a map is the ratio of a distance on the map to the corresponding distance on the ground [Wikipedia]
+    </li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurferLayout>
+
+```js subtitle='Add Scale (Optional)'
+L.control.scale({maxWidth: 200}).addTo(map);
+```
+
+</CodeSurferLayout>
+
+---
+
+![jpg](https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/skala.jpg)
+
+---
+
+# Geolocation
+
+<ul>
+  <Appear>
+    <li>
+      technology that shows the place where you are when using the internet or a mobile phone [Cambridge Dictionary]
+    </li>
+    <li>
+      Geolocation is the identification or estimation of the real-world geographic location of an object, such as a radar source, mobile phone, or Internet-connected computer terminal. [Wikipedia]
+    </li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurferLayout>
+
+```js subtitle='Tracking Location'
+// track lokasi
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("Akurasi : " + radius + " Meter").openPopup();
+    L.circle(e.latlng, radius).addTo(map);
+    }
+
+// pesan error track
+function onLocationError(e) {
+    alert(e.message);
+    }
+map.on('locationfound', onLocationFound);
+map.on('locationerror', onLocationError);
+
+map.locate({setView: true, maxZoom: 20});
+```
+
+</CodeSurferLayout>
+
+---
+
+![jpg](https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/allowgeo.jpg)
+
+---
+
+# Marker
+
+<ul>
+  <Appear>
+    <li>
+      a sign that shows where something is [Cambridge Dictionary]
+    </li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurferLayout>
+
+```js subtitle='Marker'
+var makam = L.icon({
+    iconUrl: 'makam.png',
+
+    iconSize:     [100, 200], // size of the icon
+    iconAnchor:   [50, 200], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -200] // point from which the popup should open relative to the iconAnchor
+});
+
+L.marker([-7.445268, 112.714947], {icon: makam}).bindPopup("Makam").addTo(map);
+L.marker([-7.445736, 112.715907], {icon: makam}).bindPopup("Makam").addTo(map);
+L.marker([-7.451007, 112.712431], {icon: makam}).bindPopup("Makam").addTo(map);
+L.marker([-7.427677, 112.722301], {icon: makam}).bindPopup("Makam").addTo(map);
+```
+
+</CodeSurferLayout>
+
+---
+
+![jpg](https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/ssmakam.JPG)
+
+---
+
+<CodeSurferLayout>
+
+```js subtitle='Coordinate Popup'
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("Koordinat " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+```
+
+</CodeSurferLayout>
+
+
+---
+
+![jpg](https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/koordinat.JPG)
+
+---
+
+# To Be Continue...
+
+Make A Realtime Girlfriend Tracker Website With Leaflet, NodeJS, MongoDB
