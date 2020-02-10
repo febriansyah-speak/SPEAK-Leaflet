@@ -167,17 +167,6 @@ Gerardus Mercator
 
 ---
 
-<img src="https://raw.githubusercontent.com/febriansyah4299/SPEAK-Leaflet/master/Assets/earthchan.jpg" width="400"/>
-
-###### (Earth-chan)
-###### ( Earth-chan gak datar kok ( ͡° ͜ʖ ͡°) )
-
-<Notes>
-  kenapa proyeksi peta bumi datar tidak ada yang akurat, karena bumi itu bulat mas
-</Notes>
-
----
-
 # Winkel tripel
 Oswald Winkel
 
@@ -224,6 +213,10 @@ Why All World Map Are Wrong
   </Appear>
 </ul>
 
+<Notes>
+  Leaflet adalah Javascript Library opensource yang digunakan untuk membuat peta interaktif, dibuat oleh Vladimir Agafonkin, rilis pertama pada 13 Mei 2011
+</Notes>
+
 ---
 
 ![gif](https://raw.githubusercontent.com/febriansyah4299/GIF/master/yuki.gif)
@@ -239,15 +232,27 @@ yarn add leaflet
 
 https://leafletjs.com/download.html
 
+<Notes>
+  ada berbagai macam cara utk menggunakan leaflet, di tutorial kali ini saya menggunakan CDN
+</Notes>
+
 ---
 
 # Create new file on Visual Studio Code / WebStorm
+
+<Notes>
+  untuk yang bawa laptop kalau mau coba praktek silahkan buka Visual Studio Code / WebStorm nya
+</Notes>
 
 ---
 
 # !
 
 press "!" then press "Tab"
+
+<Notes>
+  oke bagi yang ingin praktek jika sudah buat file baru tekan "!" terus tekan tab
+</Notes>
 
 ---
 
@@ -432,6 +437,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 if you are able to make map the whole world 😉
 
+<Notes>
+  atau bisa juga pakai tile sendiri jika bisa memetakan seluruh dunia
+</Notes>
+
 ---
 
 # Scale
@@ -443,6 +452,10 @@ if you are able to make map the whole world 😉
     </li>
   </Appear>
 </ul>
+
+<Notes>
+  skala di peta adalah perbandingan jarak antara di peta dengan jarak sesungguhnya
+</Notes>
 
 ---
 
@@ -520,21 +533,54 @@ L.control.scale({maxWidth: 200}).addTo(map);
 # Geolocation
 
 <ul>
-  <Appear>
     <li>
       technology that shows the place where you are when using the internet or a mobile phone [Cambridge Dictionary]
     </li>
     <li>
       Geolocation is the identification or estimation of the real-world geographic location of an object, such as a radar source, mobile phone, or Internet-connected computer terminal. [Wikipedia]
     </li>
+</ul>
+
+<Notes>
+  Geolocation adalah teknologi yang memungkinkan untuk mengetahui lokasi suatu tempat / benda
+</Notes>
+
+---
+
+# Global Navigation Satellite System (GNSS)
+
+<ul>
+  <Appear>
+    <li>
+        GPS (Unites States of America)
+    </li>
+    <li>
+        GLONASS (Russia)
+    </li>
+    <li>
+        Galileo (European Union)
+    </li>
+    <li>
+        BeiDou / COMPASS (China)
+    </li>
+    <li>
+        QZSS (Japan)
+    </li>
+    <li>
+        NAVIC (India)
+    </li>
   </Appear>
 </ul>
+
+<Notes>
+  ada beberapa macam sistem navigasi berbasis satelit seperti, gps, glonass, galileo, beidou, qzss, navic
+</Notes>
 
 ---
 
 <CodeSurferLayout>
 
-```js subtitle='Track'
+```js subtitle='Tracking Location'
 <!doctype html>
 <html lang="id">
 <head>
@@ -566,7 +612,7 @@ L.control.scale({maxWidth: 200}).addTo(map);
 </html>
 ```
 
-```js subtitle='Track'
+```js subtitle='Tracking Location'
 <!doctype html>
 <html lang="id">
 <head>
@@ -612,7 +658,7 @@ map.locate({setView: true, maxZoom: 20});
 </html>
 ```
 
-```js subtitle='Track'
+```js subtitle='Tracking Location'
 <!doctype html>
 <html lang="id">
 <head>
@@ -678,6 +724,10 @@ map.locate({setView: true, maxZoom: 20});
     </li>
   </Appear>
 </ul>
+
+<Notes>
+  marker digunakan sebagai penanda sesuatu, baik itu tempat / perangkat. bagi yang pernah buka app gojek pasti lihat lokasi abang gojek nya kan itu lah marker
+</Notes>
 
 ---
 
@@ -745,7 +795,7 @@ var makam = L.icon({
 </html>
 ```
 
-```js subtitle='Marker'
+```js subtitle='Add Marker Image'
 <!doctype html>
 <html lang="id">
 <head>
@@ -803,7 +853,7 @@ var makam = L.icon({
 </html>
 ```
 
-```js subtitle='Marker'
+```js subtitle='Add Marker Coordinates'
 <!doctype html>
 <html lang="id">
 <head>
@@ -866,7 +916,7 @@ L.marker([-7.427677, 112.722301], {icon: makam}).bindPopup("Makam").addTo(map);
 </html>
 ```
 
-```js subtitle='popup coordinate'
+```js subtitle='Show Coordinate On Click'
 <!doctype html>
 <html lang="id">
 <head>
